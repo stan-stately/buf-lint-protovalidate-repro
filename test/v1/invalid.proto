@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package test.v1;
+
+import "buf/validate/validate.proto";
+
+message Invalid {
+  // buf:lint:ignore PROTOVALIDATE
+  int32 id_field = 1 [(buf.validate.field).int64.gt = 5];
+}
